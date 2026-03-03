@@ -1,10 +1,4 @@
-document.getElementById("login-form").addEventListener("submit", function (e) {
-    e.preventDefault(); // stop page reload
-
-    let iUsername = document.getElementById("uemail").value.trim().toLowerCase();
-    let iPassword = document.getElementById("upassword").value  ;
-    let message = document.getElementById("login-msg");
-
+document.addEventListener("DOMContentLoaded", function (){
     let suppliedPassword = document.getElementById("upassword")
     let toggleElt = document.getElementById("toggle-password")
 
@@ -19,6 +13,16 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     }
 
     });
+    
+});
+
+document.getElementById("login-form").addEventListener("submit", function (e) {
+    e.preventDefault(); // stop page reload
+
+    let iUsername = document.getElementById("uemail").value.trim().toLowerCase();
+    let iPassword = document.getElementById("upassword").value  ;
+    let message = document.getElementById("login-msg");
+
     
     // Basic validation
     if (!iUsername || !iPassword) {
