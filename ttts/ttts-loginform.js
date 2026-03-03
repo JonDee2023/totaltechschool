@@ -5,6 +5,21 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     let iPassword = document.getElementById("upassword").value  ;
     let message = document.getElementById("login-msg");
 
+    let suppliedPassword = document.getElementById("upassword")
+    let toggleElt = document.getElementById("toggle-password")
+
+    toggleElt.addEventListener("click", function (){
+        if (suppliedPassword.type === "password") {
+            suppliedPassword.type = "text";
+            toggleElt.textContent = "🙈";
+
+    } else{
+        suppliedPassword.type = "password";
+        toggleElt.textContent = "👁";
+    }
+
+    });
+    
     // Basic validation
     if (!iUsername || !iPassword) {
         message.textContent = "Please fill in all required fields";
