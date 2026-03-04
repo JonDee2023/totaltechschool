@@ -36,4 +36,6 @@ document.getElementById("save-new-password").addEventListener("submit", function
     localStorage.removeItem("resetUserIndex");
 
     alert("Password successfully updated!");
-});
+
+    document.getElementById("save-new-password").reset()
+});   
