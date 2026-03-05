@@ -1,4 +1,4 @@
-let currentSessionId = null;
+let activeSessionId = null;
 
 function loginSession () {
     let storedSessions = JSON.parse(localStorage.getItem("sessions") || []);
@@ -15,7 +15,7 @@ function loginSession () {
 
     localStorage.setItem("sessions", JSON.stringify(storedSessions));
 
-    localStorage.setItem("activeSessionId", newSession.id);
+    localStorage.setItem("activeSessionId", JSON.stringify(newSession.id));
 
     console.log("Login recorded");
 };
@@ -64,6 +64,6 @@ function showSessions() {
 };
 
 // Auto logout when user closes tab:
-//window.addEventListener("beforeunload", function () {
-//    logoutUser();
-//});
+window.addEventListener("beforeunload", function () {
+    logoutSession();
+});
