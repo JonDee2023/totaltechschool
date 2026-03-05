@@ -1,14 +1,14 @@
 let activeSessionId = null;
-
-function loginSession (userEmail) {
-
-    let userEmail = localStorage.getItem("currentUser");
+let loggedEmail = localStorage.getItem("currentUser");
     
-    let storedSessions = JSON.parse(localStorage.getItem("sessions") || []);
+function loginSession () {
+
+    
+    let storedSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
 
     let newSession = {
     id: storedSessions.length + 1,
-    email: userEmail,
+    email: loggedEmail,
     loginTime: new Date().toISOString(),
     logoutTime: null,
     duration: null
@@ -24,9 +24,9 @@ function loginSession (userEmail) {
 };
 
 function logoutSession() {
-    let storedSessions = JSON.parse(localStorage.getItem("sessions") || []);
+    let storedSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
 
-    let activeSessionId = JSON.parse(localStorage.getItem("activesessionId"));
+    let activeSessionId = JSON.parse(localStorage.getItem("activeSessionId"));
 
     if (!activeSessionId) {
         console.log("No active session");
@@ -62,7 +62,7 @@ function logoutSession() {
 
 //Or use a function:
 function showSessions() {
-    let storedSessions = JSON.parse(localStorage.getItem("sessions")) || [];
+    let storedSessions = JSON.parse(localStorage.getItem("sessions") || "[]");
     console.table(storedSessions);
 };
 

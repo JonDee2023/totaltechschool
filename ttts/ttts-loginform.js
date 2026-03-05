@@ -23,7 +23,8 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     let iPassword = document.getElementById("upassword").value  ;
     let message = document.getElementById("login-msg");
 
-    
+    localStorage.setItem("currentUser", iUsername);
+
     // Basic validation
     if (!iUsername || !iPassword) {
         message.textContent = "Please fill in all required fields";
@@ -43,8 +44,6 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     } else {
     alert("Invalid login details, please check and try again.")
     };
-
-    localStorage.setItem("currentUser", iUsername);
 
     // Reset form
     document.getElementById("login-form").reset();
