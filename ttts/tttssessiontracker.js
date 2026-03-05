@@ -1,6 +1,9 @@
 let activeSessionId = null;
 
-function loginSession () {
+function loginSession (userEmail) {
+
+    let userEmail = localStorage.getItem("currentUser");
+    
     let storedSessions = JSON.parse(localStorage.getItem("sessions") || []);
 
     let newSession = {

@@ -44,6 +44,8 @@ document.getElementById("login-form").addEventListener("submit", function (e) {
     alert("Invalid login details, please check and try again.")
     };
 
+    localStorage.setItem("currentUser", iUsername);
+
     // Reset form
     document.getElementById("login-form").reset();
 
